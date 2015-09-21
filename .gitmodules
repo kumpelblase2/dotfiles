@@ -1,0 +1,6 @@
+[submodule "zgen"]
+	path = zgen
+	url = https://github.com/tarjoilija/zgen
+[submodule "config/awesome/lain"]
+	path = config/awesome/lain
+	url = https://github.com/copycat-killer/lain

@@ -1,0 +1,27 @@
+alias cat='ccat --bg=dark'
+alias git=hub
+alias live=livestreamer-curses
+
+alias ls='ls --color'
+alias ll='k'
+alias k='k -A -h --no-vcs'
+alias cl='cd && clear'
+alias mpv_hd='mpv --vo=opengl-hq:interpolation:fps=60'
+alias reload='source .zshrc'
+alias open='xdg-open'
+alias fucking='sudo'
+
+eval "$(thefuck --alias)"
+eval "$(keychain --eval -Q --quiet --agents ssh,gpg id_rsa)"
+
+rtop() {
+	ssh "$i" -t top
+}
+
+twitch() {
+	livestreamer "twitch.tv/$1" best
+}
+
+mkd() {
+	mkdir $1 && cd $1
+}

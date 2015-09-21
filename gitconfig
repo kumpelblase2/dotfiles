@@ -1,0 +1,22 @@
+[hub]
+	protocol = https
+[filter "media"]
+        required = true
+        clean = git media clean %f
+        smudge = git media smudge %f
+[push]
+	default = simple
+[user]
+	name = Tim Hagemann
+	email = tim@infinityblade.de
+[core]
+	editor = vim
+	excludesfile = /home/tim/.gitignore_global
+	autocrlf = false
+[color]
+	ui = true
+	diff = auto
+	status = auto
+	branch = auto
+[include]
+	path = ~/.gitconfig_local

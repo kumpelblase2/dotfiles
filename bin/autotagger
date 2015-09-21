@@ -1,0 +1,32 @@
+#!/usr/local/bin/python
+#
+# Automatically tags .mp3 files with Track Author and Track Name by their filename
+# Example: artist - track.mp3
+
+from os import listdir, getcwd
+from os.path import isfile, join
+import sys
+import eyed3
+
+def tag(inFile, inName):
+	print "Taggin {0}".format(inFile)
+	if not inName.__contains__(" - "):
+		raise StandardError("Invalid file name")
+
+	audio = eyed3.load(inFile)
+	artist, track = inName.split(" - ")
+	audio.tag.artist = unicode(artist)
+	audio.tag.title = unicode(track)
+	audio.tag.save()
+
+def execute(inDirectory):
+	files = [ f for f in listdir(inDirectory) if isfile(join(inDirectory, f)) ]
+	for file in files:
+		if file.endswith(".mp3"):
+			tag(join(inDirectory, file), file[:-4])
+
+if len(sys.argv) > 1:
+	for arg in sys.argv[1:]:
+		execute(arg)
+else:
+	execute(getcwd())

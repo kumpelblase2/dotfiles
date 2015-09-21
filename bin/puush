@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Credits to https://github.com/blha303/puush-linux
+
+PUUSH_API_KEY=$(pass show API/puush)
+
+if [ -z "$1" ]
+then
+  echo "Specify a file to be uploaded"
+  exit 2
+elif ! [ -f "$1" -a -r "$1" ]
+then
+  echo "File '$1' is not valid (it is not a file or it is not readable)"
+  exit 3
+fi
+
+curl "https://puush.me/api/up" -# -F "k=$PUUSH_API_KEY" -F "z=poop" -F "f=@$1" | sed -E 's/^.+,(.+),.+,.+$/\1\n/'

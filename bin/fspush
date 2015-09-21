@@ -1,0 +1,5 @@
+#!/bin/sh
+
+file="/tmp/fspush.jpg"
+
+maim --mask="on" --showcursor "$file" && puush "$file" && rm "$file"

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# TODO: Create popup once done
+# TODO: Add puush url to clipboard
+
+file="/tmp/sspush.jpg"
+
+maim -s -c 1,0,0,0.6 "$file" && puush "$file" && rm "$file"

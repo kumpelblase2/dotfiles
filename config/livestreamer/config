@@ -1,0 +1,2 @@
+player=mpv --cache 4096
+default-stream=best

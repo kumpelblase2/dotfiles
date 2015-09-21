@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Credit to /u/Raymi, see https://www.reddit.com/r/archlinux/comments/3a2plv/question_how_do_you_open_a_terminal_in_a/cs98skn
+# modified to fit my own setup.
+
+fonthight=16
+fontwidth=10
+color="0.918,0.525,0"
+border=2
+newtermgeom="echo $(slop -c $color -b $border -f "\$(expr %w / $fontwidth)x\$(expr %h / $fonthight)+%x+%y")"
+urxvtc -g $(eval $newtermgeom)

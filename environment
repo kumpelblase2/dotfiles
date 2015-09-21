@@ -1,0 +1,13 @@
+export VISUAL="vim"
+export EDITOR="vim"
+export BROWSER="chromium"
+
+export PROJECTDIR=$HOME/programming
+export GOPATH=$PROJECTDIR/go
+export PATH=$PATH:$GOPATH/bin:$HOME/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
+
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_MUSIC_DIR=$HOME/music
+
+[ -f ./environment_local ] && source ./environment_local
