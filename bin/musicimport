@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+import sys
+import os
+from os import listdir
+from os.path import isfile, join
+from shutil import move
+
+LIBRARY_DIR = os.environ["XDG_MUSIC_DIR"]
+
+def create_albumdir(inTargetDir):
+    if not os.path.exists(inTargetDir):
+        os.makedirs(inTargetDir)
+
+def insert_file(inFile, inSrc, inTargetDir):
+    name = inFile[:-4]
+    print("Inserting {0}".format(name))
+    artist, track = name.split(" - ")
+    artistdir = join(inTargetDir, artist)
+    albumdir = join(artistdir, "Unknown Album")
+    create_albumdir(albumdir)
+    # print(inFile, albumdir)
+    move(inFile, join(albumdir, inFile))
+    new_file = join(albumdir, inFile)
+    os.rename(new_file, join(albumdir, track + ".mp3"))
+
+src_dir = sys.argv[1]
+files = [ f for f in listdir(src_dir) if isfile(join(src_dir, f)) ]
+for f in files:
+    if f.endswith(".mp3"):
+        insert_file(f, src_dir, LIBRARY_DIR)
