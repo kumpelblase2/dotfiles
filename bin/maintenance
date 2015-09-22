@@ -1,0 +1,49 @@
+#!/bin/zsh
+
+# Colors
+Color_Off='\033[0m'       # Text Reset
+
+# Regular Colors
+Black='\033[0;30m'        # Black
+Red='\033[0;31m'          # Red
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+Blue='\033[0;34m'         # Blue
+Purple='\033[0;35m'       # Purple
+Cyan='\033[0;36m'         # Cyan
+White='\033[0;37m'        # White
+
+BACKUP_SCRIPT_LOCATION=~/bin_local/run_backup.sh
+
+echo -e "${Yellow} ====> Starting System Maintenance..."
+echo ""
+figlet "Ready?"
+echo ""
+
+###### PACMAN CACHE
+
+echo -e " ====> Init cleaning pacman cache...${Color_Off}"
+sudo pacman -Sc
+echo -e "${Green} ====> Done cleaning pacman cache."
+
+###### BACKUPS
+
+echo -e "${Yellow} ====> Do you want to run another round of backups? [Y/n]${White}"
+read -rs -k 1 doBackups
+case $doBackups in
+	y|Y|$'\n')
+		echo -e "${Yellow} ====> Starting backup routine...${Color_Off}"
+		sh "$BACKUP_SCRIPT_LOCATION"
+		echo -e "${Green} ====> Done with backups."
+		;;
+	*)
+		;;
+esac
+
+###### SYSTEM UPDATE
+
+echo -e "${Yellow} ====> Starting system update...${Color_Off}"
+sudo pacman -Syu
+echo -e "${Green} ====> Done with system update."
+echo -e "${Green} ====> System maintenance done."
+figlet "Goodbye."
