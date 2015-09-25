@@ -92,7 +92,7 @@ lain.layout.centerfair.ncol = 1
 -- {{{ Tags
 tags = {
    names = { "web", "work", "media", "random" },
-   layout = { layouts[7], layouts[6], layouts[5], layouts[10] }
+   layout = { layouts[9], layouts[6], layouts[7], layouts[10] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
@@ -454,34 +454,35 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
 
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
+    awful.key({  }, "XF86AudioRaiseVolume",
         function ()
             os.execute(string.format("amixer -c %s set %s 1+", volumewidget.card, volumewidget.channel))
             volumewidget.update()
         end),
-    awful.key({ altkey }, "Down",
+    awful.key({  }, "XF86AudioLowerVolume",
         function ()
             os.execute(string.format("amixer -c %s set %s 1-", volumewidget.card, volumewidget.channel))
             volumewidget.update()
         end),
 
-    -- MPD control TODO Use function keys
-    awful.key({ altkey, "Control" }, "Up",
+    -- MPD control
+    awful.key({  }, "XF86AudioPlay",
         function ()
             awful.util.spawn_with_shell("mpc toggle || ncmpc toggle || pms toggle")
             mpdwidget.update()
         end),
-    awful.key({ altkey, "Control" }, "Down",
+    --[[awful.key({ altkey, "Control" }, "Down",
         function ()
             awful.util.spawn_with_shell("mpc stop || ncmpc stop || pms stop")
             mpdwidget.update()
         end),
-    awful.key({ altkey, "Control" }, "Left",
+    --]]
+    awful.key({  }, "XF86AudioPrev",
         function ()
             awful.util.spawn_with_shell("mpc prev || ncmpc prev || pms prev")
             mpdwidget.update()
         end),
-    awful.key({ altkey, "Control" }, "Right",
+    awful.key({  }, "XF86AudioNext",
         function ()
             awful.util.spawn_with_shell("mpc next || ncmpc next || pms next")
             mpdwidget.update()
@@ -496,7 +497,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "v", function() awful.util.spawn("selectionterm") end),
 
     -- Prompt
-    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end)
+    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
+
+    awful.key({  }, "XF86Sleep", function () os.execute("lock") end)
 )
 
 clientkeys = awful.util.table.join(
