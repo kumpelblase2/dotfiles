@@ -10,4 +10,4 @@ export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_MUSIC_DIR=$HOME/music
 
-[ -f ./environment_local ] && source ./environment_local
+[ -f .zshenv_local ] && source .zshenv_local
