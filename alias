@@ -10,6 +10,11 @@ alias mpv_hd='mpv --vo=opengl-hq:interpolation:fps=60'
 alias reload='source .zshrc'
 alias open='xdg-open'
 alias fucking='sudo'
+alias clear_pacman_cache='sudo pacman -Sc'
+alias sc='systemctl'
+alias show_unused='expac -HM "%-20n\t%10d" $(pacman -Qtdq|sort)'
+alias remove_unused='pacman -Rns $(pacman -Qtdq)'
+alias update_mirrorlist='sudo reflector --sort rate --save /etc/pacman.d/mirrorlist -c "Germany" -f 5 -p https'
 
 eval "$(thefuck --alias)"
 eval "$(keychain --eval -Q --quiet --agents ssh,gpg id_rsa)"
