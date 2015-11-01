@@ -5,14 +5,14 @@
         clean = git media clean %f
         smudge = git media smudge %f
 [push]
-	default = simple
+	default = current
 [user]
 	name = Tim Hagemann
 	email = tim@infinityblade.de
 [core]
 	editor = vim
 	excludesfile = /home/tim/.gitignore_global
-	autocrlf = false
+	autocrlf = input
 [color]
 	ui = true
 	diff = auto
