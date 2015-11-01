@@ -18,3 +18,6 @@ fi
 . "${DOTFILES}/zshsettings"
 . "${DOTFILES}/environment"
 . "${DOTFILES}/alias"
+
+export NVM_DIR="/home/tim/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
