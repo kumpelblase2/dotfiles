@@ -508,6 +508,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey }, "s", function(c) c.sticky = not c.sticky; c.ontop = c.sticky end),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -703,6 +704,6 @@ run_once("unclutter -root")
 run_once("skype")
 run_once("dropbox")
 run_once("rssowl")
-run_once("birdie")
+run_once("corebird")
 run_once("pidgin")
 -- }}}
