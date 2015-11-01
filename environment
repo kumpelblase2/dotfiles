@@ -2,8 +2,10 @@ export VISUAL="vim"
 export EDITOR="vim"
 export BROWSER="chromium"
 
+export LANG=de_DE.UTF-8
 export PROJECTDIR=$HOME/programming
 export GOPATH=$PROJECTDIR/go
+export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$PATH:$GOPATH/bin:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
 
