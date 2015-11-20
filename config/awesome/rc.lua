@@ -16,7 +16,6 @@
 
 
      Things on my TODO:
-     - Layout names as own widget
      - Modify layouts to behavior the I want them to behave
 --]]
 
@@ -194,7 +193,7 @@ mpdicon = wibox.widget.imagebox()
 mpdwidget = lain.widgets.mpd({
     settings = function()
         mpd_notification_preset = {
-            text = string.format("%s %s", mpd_now.artist, mpd_now.title)
+            text = string.format("%s - %s", mpd_now.artist, mpd_now.title)
         }
 
         mpdicon:set_image(beautiful.widget_note_on)
@@ -706,4 +705,5 @@ run_once("dropbox")
 run_once("rssowl")
 run_once("corebird")
 run_once("pidgin")
+run_once("qtox")
 -- }}}
