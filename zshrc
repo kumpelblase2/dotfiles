@@ -11,6 +11,7 @@ if ! zgen saved; then
 	zgen load rimraf/k
 	zgen oh-my-zsh plugins/command-not-found
 	zgen oh-my-zsh themes/norm
+	zgen oh-my-zsh plugins/safe-paste
 
 	zgen save
 fi
