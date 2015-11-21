@@ -33,4 +33,4 @@ mkd() {
 	mkdir $1 && cd $1
 }
 
-[ -f alias_local ] && source alias_local
+[ -f "$DOTFILES/alias_local" ] && source "$DOTFILES/alias_local"
