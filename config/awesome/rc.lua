@@ -496,7 +496,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "v", function() awful.util.spawn("selectionterm") end),
 
     -- Prompt
-    awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey }, "r", function () awful.util.spawn("rofi -show run") end),
 
     awful.key({  }, "XF86Sleep", function () os.execute("lock") end)
 )
