@@ -90,12 +90,20 @@ lain.layout.centerfair.ncol = 1
 
 -- {{{ Tags
 tags = {
-   names = { "web", "work", "media", "random" },
-   layout = { layouts[9], layouts[6], layouts[7], layouts[10] }
+   names = { "web", "work", "media", "random", "optional" },
+   visibility = { true, true, true, true, false },
+   layout = { layouts[9], layouts[6], layouts[7], layouts[10], layouts[9] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
    tags[s] = awful.tag(tags.names, s, tags.layout)
+   for id, tag in ipairs(tags[s]) do
+	awful.tag.setproperty(tag, "__visible", tags.visibility[id])
+   end
+end
+
+function filter_specific(t, args)
+	return t.selected or awful.tag.getproperty(t, "__visible")
 end
 -- }}}
 
@@ -285,7 +293,7 @@ for s = 1, screen.count() do
           awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
 
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, filter_specific, mytaglist.buttons)
 
     -- Create a tasklist widget
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
@@ -524,7 +532,7 @@ clientkeys = awful.util.table.join(
 -- Bind all key numbers to tags.
 -- be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 4 do
+for i = 1, 5 do
     globalkeys = awful.util.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
