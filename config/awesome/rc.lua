@@ -74,11 +74,7 @@ local layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.fair,
     awful.layout.suit.max,
-    lain.layout.centerwork,
-    lain.layout.centerfair,
-    lain.layout.termfair,
-    lain.layout.uselessfair,
-    lain.layout.uselesstile,
+    lain.layout.centerwork
 }
 
 lain.layout.termfair.nmaster = 3
@@ -92,7 +88,7 @@ lain.layout.centerfair.ncol = 1
 tags = {
    names = { "web", "work", "media", "random", "optional" },
    visibility = { true, true, true, true, false },
-   layout = { layouts[9], layouts[6], layouts[7], layouts[10], layouts[9] }
+   layout = { layouts[2], layouts[6], layouts[3], layouts[4], layouts[1] }
 }
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
