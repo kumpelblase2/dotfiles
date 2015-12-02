@@ -103,7 +103,7 @@ for s = 1, screen.count() do
 end
 
 function filter_specific(t, args)
-	return t.selected or awful.tag.getproperty(t, "__visible")
+	return t.selected or awful.tag.getproperty(t, "__visible") or #t:clients() > 0
 end
 -- }}}
 
