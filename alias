@@ -19,7 +19,6 @@ alias mount_usb='sudo mount -t vfat /dev/sdg1 /mnt/usb -o user,exec'
 alias unmount_usb='sudo umount /mnt/usb'
 
 eval "$(thefuck --alias)"
-eval "$(keychain --eval -Q --quiet --agents ssh,gpg id_rsa)"
 
 rtop() {
 	ssh "$i" -t top
