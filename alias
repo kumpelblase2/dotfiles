@@ -6,7 +6,7 @@ alias ls='ls --color'
 alias ll='k'
 alias k='k -A -h --no-vcs'
 alias cl='cd && clear'
-alias mpv_hd='mpv --vo=opengl-hq:interpolation:fps=60'
+alias mpv_hd='mpv --video-sync=display-resample --display-fps=60 --vo=opengl-hq:interpolation'
 alias reload='source .zshrc'
 alias open='xdg-open'
 alias fucking='sudo'
@@ -17,6 +17,11 @@ alias remove_unused='pacman -Rns $(pacman -Qtdq)'
 alias update_mirrorlist='sudo reflector --sort rate --save /etc/pacman.d/mirrorlist -c "Germany" -f 5 -p https'
 alias mount_usb='sudo mount -t vfat /dev/sdg1 /mnt/usb -o user,exec'
 alias unmount_usb='sudo umount /mnt/usb'
+alias mkd=take
+alias t='todo.sh'
+
+autoload -U zmv
+alias fix_music_names="zmv '(*) [*].mp3' '$1.mp3' && zmv '* _ (*).mp3' '$1.mp3'"
 
 eval "$(thefuck --alias)"
 
@@ -26,10 +31,6 @@ rtop() {
 
 twitch() {
 	livestreamer "twitch.tv/$1" best
-}
-
-mkd() {
-	mkdir $1 && cd $1
 }
 
 [ -f "$DOTFILES/alias_local" ] && source "$DOTFILES/alias_local"
