@@ -162,6 +162,7 @@ tempwidget = lain.widgets.temp({
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volumewidget = lain.widgets.alsa({
+    card = "1",
     settings = function()
         if volume_now.status == "off" then
             volume_now.level = volume_now.level .. "M"
