@@ -31,7 +31,13 @@ rtop() {
 }
 
 twitch() {
-	livestreamer "twitch.tv/$1" best
+	if [ -z $2 ]; then
+		quality="best"
+	else
+		quality=$2
+	fi	
+
+	livestreamer "twitch.tv/$1" $quality
 }
 
 [ -f "$DOTFILES/alias_local" ] && source "$DOTFILES/alias_local"
