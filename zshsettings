@@ -1,6 +1,6 @@
 HISTFILE=$HOME/.zshhistory
 
-setopt appendhistory autocd EXTENDED_HISTORY
+setopt appendhistory autocd EXTENDED_HISTORY HIST_IGNORE_DUPS
 bindkey -e
 bindkey "$terminfo[khome]" beginning-of-line
 bindkey "$terminfo[kend]" end-of-line
