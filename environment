@@ -7,7 +7,7 @@ export PROJECTDIR=$HOME/programming
 export GOPATH=$PROJECTDIR/go
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$PATH:$GOPATH/bin:$HOME/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.2.0/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_MUSIC_DIR=$HOME/music
