@@ -20,6 +20,7 @@ alias unmount_usb='sudo umount /mnt/usb'
 alias mkd=take
 alias t='todo.sh'
 alias unmount=umount
+alias targz='tar -cvzf'
 
 autoload -U zmv
 alias fix_music_names="zmv '(*) [*].mp3' '$1.mp3' && zmv '* _ (*).mp3' '$1.mp3'"
