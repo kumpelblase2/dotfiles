@@ -111,11 +111,6 @@ if beautiful.wallpaper then
 end
 -- }}}
 
--- {{{ Freedesktop Menu
-mymainmenu = awful.menu.new({ items = require("menugen").build_menu(),
-                              theme = { height = 16, width = 130 }})
--- }}}
-
 -- {{{ Wibox
 markup      = lain.util.markup
 
@@ -125,14 +120,6 @@ mytextclock = awful.widget.textclock(markup(beautiful.colors.color7, "%A %d %B "
 
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
-
--- Weather
-weathericon = wibox.widget.imagebox(beautiful.widget_weather)
-yawn = lain.widgets.yawn(24508893, {
-    settings = function()
-        widget:set_markup(markup(beautiful.colors.color13, forecast:lower() .. " @ " .. units .. "°C "))
-    end
-})
 
 -- / fs
 fsicon = wibox.widget.imagebox(beautiful.widget_fs)
@@ -194,8 +181,8 @@ memwidget = lain.widgets.mem({
 })
 
 -- MPD
-mpdicon = wibox.widget.imagebox()
-mpdwidget = lain.widgets.mpd({
+--[[mpdicon = wibox.widget.imagebox()
+--mpdwidget = lain.widgets.mpd({
     settings = function()
         mpd_notification_preset = {
             text = string.format("%s - %s", mpd_now.artist, mpd_now.title)
@@ -215,7 +202,7 @@ mpdwidget = lain.widgets.mpd({
         end
         widget:set_markup(markup(beautiful.colors.color1, artist) .. markup(beautiful.colors.color7, title))
     end
-})
+})]]--
 
 -- Spacer
 spacer = wibox.widget.textbox(" ")
@@ -308,8 +295,6 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(mailicon)
     --right_layout:add(mailwidget)
-    right_layout:add(mpdicon)
-    right_layout:add(mpdwidget)
     right_layout:add(netdownicon)
     right_layout:add(netdowninfo)
     right_layout:add(netupicon)
@@ -322,8 +307,6 @@ for s = 1, screen.count() do
     right_layout:add(cpuwidget)
     right_layout:add(fsicon)
     right_layout:add(fswidget)
-    right_layout:add(weathericon)
-    right_layout:add(yawn.widget)
     right_layout:add(tempicon)
     right_layout:add(tempwidget)
     right_layout:add(clockicon)
@@ -369,7 +352,6 @@ end
 
 -- {{{ Mouse Bindings
 --[[root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))]]--
@@ -454,9 +436,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
-    -- Widgets popups
-    awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
-
     -- ALSA volume control
     awful.key({  }, "XF86AudioRaiseVolume",
         function ()
@@ -473,7 +452,6 @@ globalkeys = awful.util.table.join(
     awful.key({  }, "XF86AudioPlay",
         function ()
             awful.util.spawn_with_shell("mpc toggle || ncmpc toggle || pms toggle")
-            mpdwidget.update()
         end),
     --[[awful.key({ altkey, "Control" }, "Down",
         function ()
@@ -484,12 +462,10 @@ globalkeys = awful.util.table.join(
     awful.key({  }, "XF86AudioPrev",
         function ()
             awful.util.spawn_with_shell("mpc prev || ncmpc prev || pms prev")
-            mpdwidget.update()
         end),
     awful.key({  }, "XF86AudioNext",
         function ()
             awful.util.spawn_with_shell("mpc next || ncmpc next || pms next")
-            mpdwidget.update()
         end),
 
     -- Copy to clipboard
