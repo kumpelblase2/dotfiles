@@ -1,0 +1,13 @@
+#!/bin/python
+
+import os
+import re
+
+regex = re.compile('(【.+】|► |\[.+\])? ?([^[]+) ?(\[.+\])?.mp3')
+
+for filename in os.listdir("."):
+	orig = filename
+	
+	match = regex.match(filename)
+
+	os.rename(orig, match.group(2).strip() + '.mp3')
