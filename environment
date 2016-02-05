@@ -9,6 +9,9 @@ export GOPATH=$PROJECTDIR/go
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$PATH:$GOPATH/bin:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin
+export ANDROID_HOME=/opt/android-sdk
+export ANDROID_SWT=/usr/share/java
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_MUSIC_DIR=$HOME/music
