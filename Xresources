@@ -45,7 +45,7 @@ URxvt*colorUL: #86a2b0
 
 !urxvt fonts:
 
-URxvt*font: xft:FreeMono:pixelsize=16
+URxvt*font: xft:Hack:pixelsize=16,xft:unifont:style=Medium:antialias=false,xft:FreeSerif:style=Regular
 URxvt*boldFont: xft:FreeMono:bold:pixelsize=16
 URxvt*imLocale: de_DE.UTF-8
 
