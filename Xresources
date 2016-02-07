@@ -52,7 +52,7 @@ URxvt*imLocale: de_DE.UTF-8
 
 !urxvt extensions:
 
-URxvt.perl-ext-common:  default,matcher,tabbedex
+URxvt.perl-ext-common:  default,matcher
 
 !enabling clickable links:
 
@@ -66,16 +66,6 @@ URxvt*scrollstyle:plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
-
-! urxvt tabs settings:
-
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 2
-URxvt.tabbed.tab-bg: 8
-URxvt.tabbed.autohide:  yes
-URxvt.tabbed.new-button:  no
-URxvt.tabbed.title: no
 
 !Font Rendering
 Xft.dpi:	108
