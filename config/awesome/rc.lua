@@ -54,7 +54,7 @@ end
 os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
-beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/dark/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/forrest/theme.lua")
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
