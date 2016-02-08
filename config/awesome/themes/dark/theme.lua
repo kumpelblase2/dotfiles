@@ -66,7 +66,6 @@ theme.widget_note_on                = theme.confdir .. "/icons/note_on.png"
 theme.widget_netdown                = theme.confdir .. "/icons/net_down.png"
 theme.widget_netup                  = theme.confdir .. "/icons/net_up.png"
 theme.widget_mail                   = theme.confdir .. "/icons/mail.png"
-theme.widget_batt                   = theme.confdir .. "/icons/bat.png"
 theme.widget_clock                  = theme.confdir .. "/icons/clock.png"
 theme.widget_vol                    = theme.confdir .. "/icons/spkr.png"
 
@@ -77,17 +76,6 @@ theme.tasklist_disable_icon         = true
 theme.tasklist_floating             = ""
 theme.tasklist_maximized_horizontal = ""
 theme.tasklist_maximized_vertical   = ""
-
-theme.layout_floating               = theme.confdir .. "/icons/floating.png"
-theme.layout_tile                   = theme.confdir .. "/icons/tile.png"
-theme.layout_tileleft               = theme.confdir .. "/icons/tileleft.png"
-theme.layout_fairv                  = theme.confdir .. "/icons/fairv.png"
-theme.layout_max                    = theme.confdir .. "/icons/max.png"
-theme.layout_centerwork             = theme.confdir .. "/icons/centerworkw.png"
-theme.layout_centerfair             = theme.confdir .. "/icons/centerfairw.png"
-theme.layout_termfair               = theme.confdir .. "/icons/termfairw.png"
-theme.layout_uselessfair            = theme.layout_termfair
-theme.layout_uselesstile            = theme.layout_tile
 
 theme.useless_gap_width             = 10
 
