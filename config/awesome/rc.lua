@@ -112,7 +112,7 @@ end
 -- }}}
 
 -- {{{ Wibox
-markup      = lain.util.markup
+markup = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
@@ -679,12 +679,5 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("urxvtd")
-run_once("unclutter -root")
-run_once("skype")
-run_once("dropbox")
-run_once("rssowl")
-run_once("corebird")
-run_once("pidgin")
-run_once("qtox")
+require('autostart')
 -- }}}

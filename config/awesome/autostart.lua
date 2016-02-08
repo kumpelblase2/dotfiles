@@ -1,0 +1,7 @@
+run_once("urxvtd")
+run_once("skype")
+run_once("dropbox")
+run_once("rssowl")
+run_once("corebird")
+run_once("pidgin")
+run_once("qtox")
