@@ -115,14 +115,12 @@ end
 markup = lain.util.markup
 
 -- Textclock
-clockicon = wibox.widget.imagebox(beautiful.widget_clock)
 mytextclock = awful.widget.textclock(markup(beautiful.colors.color7, "%A %d %B ") .. markup(beautiful.colors.color8, ">") .. markup(beautiful.colors.color16, " %H:%M "))
 
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 -- / fs
-fsicon = wibox.widget.imagebox(beautiful.widget_fs)
 fswidget = lain.widgets.fs({
     settings  = function()
         widget:set_markup(markup(beautiful.colors.color12, fs_now.used .. "% "))
@@ -130,8 +128,6 @@ fswidget = lain.widgets.fs({
 })
 
 -- CPU
-cpuicon = wibox.widget.imagebox()
-cpuicon:set_image(beautiful.widget_cpu)
 cpuwidget = lain.widgets.cpu({
     settings = function()
         widget:set_markup(markup(beautiful.colors.color1, cpu_now.usage .. "% "))
@@ -139,7 +135,6 @@ cpuwidget = lain.widgets.cpu({
 })
 
 -- Coretemp
-tempicon = wibox.widget.imagebox(beautiful.widget_temp)
 tempwidget = lain.widgets.temp({
     settings = function()
         widget:set_markup(markup(beautiful.colors.color3, coretemp_now .. "°C "))
@@ -147,7 +142,6 @@ tempwidget = lain.widgets.temp({
 })
 
 -- ALSA volume
-volicon = wibox.widget.imagebox(beautiful.widget_vol)
 volumewidget = lain.widgets.alsa({
     card = "1",
     settings = function()
@@ -160,20 +154,17 @@ volumewidget = lain.widgets.alsa({
 })
 
 -- Net
-netdownicon = wibox.widget.imagebox(beautiful.widget_netdown)
 --netdownicon.align = "middle"
 netdowninfo = wibox.widget.textbox()
-netupicon = wibox.widget.imagebox(beautiful.widget_netup)
 --netupicon.align = "middle"
 netupinfo = lain.widgets.net({
     settings = function()
-        widget:set_markup(markup(beautiful.colors.color1, net_now.sent .. " "))
-        netdowninfo:set_markup(markup(beautiful.colors.color2, net_now.received .. " "))
+        widget:set_markup(markup(beautiful.colors.color1, "↑ " .. net_now.sent .. " "))
+        netdowninfo:set_markup(markup(beautiful.colors.color2, "↓ " .. net_now.received .. " "))
     end
 })
 
 -- MEM
-memicon = wibox.widget.imagebox(beautiful.widget_mem)
 memwidget = lain.widgets.mem({
     settings = function()
         widget:set_markup(markup(beautiful.colors.color3, mem_now.used .. "M "))
@@ -205,7 +196,7 @@ memwidget = lain.widgets.mem({
 })]]--
 
 -- Spacer
-spacer = wibox.widget.textbox(" ")
+spacer = wibox.widget.textbox(" - ")
 -- }}}
 
 -- {{{ Layout
@@ -295,21 +286,19 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(mailicon)
     --right_layout:add(mailwidget)
-    right_layout:add(netdownicon)
     right_layout:add(netdowninfo)
-    right_layout:add(netupicon)
     right_layout:add(netupinfo)
-    right_layout:add(volicon)
+    right_layout:add(spacer)
     right_layout:add(volumewidget)
-    right_layout:add(memicon)
+    right_layout:add(spacer)
     right_layout:add(memwidget)
-    right_layout:add(cpuicon)
+    right_layout:add(spacer)
     right_layout:add(cpuwidget)
-    right_layout:add(fsicon)
+    right_layout:add(spacer)
     right_layout:add(fswidget)
-    right_layout:add(tempicon)
+    right_layout:add(spacer)
     right_layout:add(tempwidget)
-    right_layout:add(clockicon)
+    right_layout:add(spacer)
     right_layout:add(mytextclock)
 
     local middle_layout = wibox.layout.fixed.horizontal()

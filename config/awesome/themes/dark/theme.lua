@@ -54,21 +54,6 @@ theme.menu_fg_focus                 = theme.fg_focus
 theme.menu_bg_normal                = theme.bg_normal
 theme.menu_bg_focus                 = theme.bg_focus
 
-theme.submenu_icon                  = theme.confdir .. "/icons/submenu.png"
-theme.widget_temp                   = theme.confdir .. "/icons/temp.png"
-theme.widget_uptime                 = theme.confdir .. "/icons/ac.png"
-theme.widget_cpu                    = theme.confdir .. "/icons/cpu.png"
-theme.widget_weather                = theme.confdir .. "/icons/dish.png"
-theme.widget_fs                     = theme.confdir .. "/icons/fs.png"
-theme.widget_mem                    = theme.confdir .. "/icons/mem.png"
-theme.widget_note                   = theme.confdir .. "/icons/note.png"
-theme.widget_note_on                = theme.confdir .. "/icons/note_on.png"
-theme.widget_netdown                = theme.confdir .. "/icons/net_down.png"
-theme.widget_netup                  = theme.confdir .. "/icons/net_up.png"
-theme.widget_mail                   = theme.confdir .. "/icons/mail.png"
-theme.widget_clock                  = theme.confdir .. "/icons/clock.png"
-theme.widget_vol                    = theme.confdir .. "/icons/spkr.png"
-
 theme.taglist_squares_sel           = theme.confdir .. "/icons/square_a.png"
 theme.taglist_squares_unsel         = theme.confdir .. "/icons/square_b.png"
 
