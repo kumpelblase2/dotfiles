@@ -21,6 +21,7 @@ alias mkd=take
 alias t='todo.sh'
 alias unmount=umount
 alias targz='tar -cvzf'
+alias sshot='maim -s -c 1,0,0,0.6'
 
 eval "$(thefuck --alias)"
 
