@@ -31,7 +31,7 @@ echo -e "${Green} ====> Done cleaning pacman cache."
 echo -e "${Yellow} ====> Do you want to run another round of backups? [Y/n]${White}"
 read -rs -k 1 doBackups
 case $doBackups in
-	y|Y|$'\n')
+	y|Y|j|J|$'\n')
 		echo -e "${Yellow} ====> Starting backup routine...${Color_Off}"
 		sh "$BACKUP_SCRIPT_LOCATION"
 		echo -e "${Green} ====> Done with backups."
@@ -43,7 +43,7 @@ esac
 ###### SYSTEM UPDATE
 
 echo -e "${Yellow} ====> Starting system update...${Color_Off}"
-sudo pacman -Syu
+pacaur -Syu
 echo -e "${Green} ====> Done with system update."
 echo -e "${Green} ====> System maintenance done."
 figlet "Goodbye."
