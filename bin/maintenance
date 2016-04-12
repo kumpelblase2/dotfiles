@@ -14,6 +14,8 @@ Cyan='\033[0;36m'         # Cyan
 White='\033[0;37m'        # White
 
 BACKUP_SCRIPT_LOCATION=~/bin_local/run_backup.sh
+BACKUP_VERIFY_LOCATION=~/bin_local/verify_backup.sh
+BACKUP_CLEAN_LOCATION=~/bin_local/clean_backup.sh
 
 echo -e "${Yellow} ====> Starting System Maintenance..."
 echo ""
@@ -35,6 +37,21 @@ case $doBackups in
 		echo -e "${Yellow} ====> Starting backup routine...${Color_Off}"
 		sh "$BACKUP_SCRIPT_LOCATION"
 		echo -e "${Green} ====> Done with backups."
+		;;
+	*)
+		;;
+esac
+
+echo -e "${Yellow} ====> Making sure backups are OK${Color_Off}"
+sh "$BACKUP_VERIFY_LOCATION"
+
+echo -e "${Yellow} ====> Do you want to clean the backups? [y/N]${White}"
+read -rs -k 1 cleanBackups
+case $cleanBackups in
+	y|Y|j|J)
+		echo -e "${Yellow} ====> Cleaning up backups ...${Color_Off}"
+		sh "$BACKUP_CLEAN_LOCATION"
+		echo -e "${Green} ====> Done with cleaning.${Color_Off}"
 		;;
 	*)
 		;;
