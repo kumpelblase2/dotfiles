@@ -1,62 +1,31 @@
-Xcursor.theme:    Vanilla-DMZ-AA
+Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
 
 !urxvt color scheme:
 
 URxvt*colorUL: #86a2b0
+URxvt*letterSpace: -1
+! URxvt*background: 0
 
 ! special
-*.foreground:   #c0c5ce
-*.background:   #2b303b
-*.cursorColor:  #c0c5ce
+*.cursorColor: #c0c5ce
 
-! black
-*.color0:       #2b303b
-*.color8:       #65737e
-
-! red
-*.color1:       #bf616a
-*.color9:       #bf616a
-
-! green
-*.color2:       #a3be8c
-*.color10:      #a3be8c
-
-! yellow
-*.color3:       #ebcb8b
-*.color11:      #ebcb8b
-
-! blue
-*.color4:       #8fa1b3
-*.color12:      #8fa1b3
-
-! magenta
-*.color5:       #b48ead
-*.color13:      #b48ead
-
-! cyan
-*.color6:       #96b5b4
-*.color14:      #96b5b4
-
-! white
-*.color7:       #c0c5ce
-*.color15:      #eff1f5
-
+#include "/home/tim/.dotfiles/themes/current/Xresources"
 
 !urxvt fonts:
 
-URxvt*font: xft:Hack:pixelsize=16,xft:unifont:style=Medium:antialias=false,xft:FreeSerif:style=Regular
+URxvt*font: xft:FreeMono:pixelsize=16,xft:unifont:style=Medium:antialias=false,xft:FreeSerif:style=Regular
 URxvt*boldFont: xft:FreeMono:bold:pixelsize=16
 URxvt*imLocale: de_DE.UTF-8
 
 
 !urxvt extensions:
 
-URxvt.perl-ext-common:  default,matcher
+URxvt.perl-ext-common: default,matcher
 
 !enabling clickable links:
 
-URxvt.matcher.button:   1
+URxvt.matcher.button: 1
 URxvt.url-launcher: chromium
 
 !urxvt scrolling options and cursor style:
