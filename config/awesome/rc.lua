@@ -468,14 +468,24 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey }, "r", function () awful.util.spawn("rofi -show run") end),
 
-    awful.key({  }, "XF86Sleep", function () os.execute("lock") end)
+    awful.key({  }, "XF86Sleep", function () os.execute("lock") end),
+
+    awful.key({ modkey }, "o",
+        function()
+            awful.screen.focus_relative(1)
+        end),
+    awful.key({ modkey, "Shift" }, "o",
+        function() 
+            if client.focus then
+                awful.client.movetoscreen(client.focus)
+            end
+        end)
 )
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ altkey            }, "q",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey }, "s", function(c) c.sticky = not c.sticky; c.ontop = c.sticky end),
     awful.key({ modkey,           }, "n",
