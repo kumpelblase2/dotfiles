@@ -9,9 +9,9 @@ if ! zgen saved; then
 	zgen oh-my-zsh
 	zgen load zsh-users/zsh-syntax-highlighting
 	zgen load rimraf/k
-	zgen oh-my-zsh plugins/command-not-found
 	zgen oh-my-zsh themes/norm
 	zgen oh-my-zsh plugins/safe-paste
+	zgen load felixr/docker-zsh-completion
 
 	zgen save
 fi
