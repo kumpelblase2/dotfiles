@@ -23,6 +23,7 @@ alias unmount=umount
 alias targz='tar -cvzf'
 alias tarxz='tar -cvJf'
 alias sshot='maim -s -c 1,0,0,0.6'
+alias ssh='TERM=xterm-256color ssh'
 
 eval "$(thefuck --alias)"
 
