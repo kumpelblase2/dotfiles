@@ -4,4 +4,5 @@ export BROWSER=chromium
 xset -b
 xrdb -merge ~/.Xresources
 numlockx &
+unclutter &
 exec awesome
