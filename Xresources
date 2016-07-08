@@ -16,7 +16,7 @@ URxvt*letterSpace: -1
 
 URxvt*font: xft:FreeMono:pixelsize=16,xft:unifont:style=Medium:antialias=false,xft:FreeSerif:style=Regular
 URxvt*boldFont: xft:FreeMono:bold:pixelsize=16
-URxvt*imLocale: de_DE.UTF-8
+URxvt*imLocale: en_US.UTF-8
 
 
 !urxvt extensions:

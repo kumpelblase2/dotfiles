@@ -1,5 +1,5 @@
 setxkbmap de
-export LANG=de_DE.UTF-8
+export LANG=en_US.UTF-8
 export BROWSER=chromium
 xset -b
 xrdb -merge ~/.Xresources
