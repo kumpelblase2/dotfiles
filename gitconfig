@@ -8,7 +8,7 @@
 	default = current
 [user]
 	name = Tim Hagemann
-	email = tim@infinityblade.de
+	email = tim@eternalwings.de
 	signingkey = DBAA446A
 [core]
 	editor = vim
