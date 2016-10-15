@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Old vive IDs
+#  -usb -usbdevice host:0424:274d \
+#  -usb -usbdevice host:0bb4:0306 \
+#  -usb -usbdevice host:28de:2101 \
+#  -usb -usbdevice host:0bb4:2c87 \
+#  -usb -usbdevice host:0d8c:0012 \
+#  -usb -usbdevice host:28de:2000 \
+#  -usb -usbdevice host:0bb4:2134 \
+#  -usb -usbdevice host:0bb4:2744 \
+
+export QEMU_AUDIO_DRV="pa"
+
+qemu-system-x86_64 \
+  -enable-kvm \
+  -name windows \
+  -m 6144 \
+  -smp cores=4,threads=2 \
+  -cpu host,kvm=off,check \
+  -rtc base=localtime \
+  -vga none \
+  -nographic \
+  -usb -usbdevice host:1532:011a \
+  -usb -usbdevice host:1532:0037 \
+  -soundhw hda \
+  -k de \
+  -device vfio-pci,host=01:00.0,multifunction=on \
+  -device vfio-pci,host=01:00.1 \
+  -device vfio-pci,host=05:00.0 \
+  -drive if=pflash,format=raw,readonly,file=/usr/share/edk2.git/ovmf-x64/OVMF_CODE-pure-efi.fd \
+  -drive if=pflash,format=raw,file=~/vm/efivars.fd \
+  -device virtio-scsi-pci,id=scsi \
+  -hda /dev/sdb \
+  -drive file=~/vm/virt.iso,id=virtiocd,if=none,format=raw -device ide-cd,bus=ide.1,drive=virtiocd
+
+setxkbmap de
+xset -b
