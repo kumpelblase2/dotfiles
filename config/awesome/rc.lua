@@ -115,7 +115,7 @@ end
 markup = lain.util.markup
 
 -- Textclock
-mytextclock = awful.widget.textclock(markup(beautiful.colors.color7, "%A %d %B ") .. markup(beautiful.colors.color8, ">") .. markup(beautiful.colors.color16, " %H:%M "))
+mytextclock = awful.widget.textclock(markup(beautiful.colors.color7, "%A %d %B ") .. markup(beautiful.colors.color8, ">") .. markup(beautiful.colors.color1, " %H:%M "))
 
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
