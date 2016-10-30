@@ -1,9 +1,9 @@
 [hub]
 	protocol = https
 [filter "media"]
-        required = true
-        clean = git media clean %f
-        smudge = git media smudge %f
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
 [push]
 	default = current
 [user]
@@ -16,7 +16,7 @@
 	autocrlf = input
 	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [color]
-	ui = always 
+	ui = always
 	status = auto
 	branch = auto
 [include]
