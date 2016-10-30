@@ -1,0 +1,22 @@
+#!/bin/bash
+# A small script that forks off offlineimap to sync multiple mail accounts at the same time.
+# Mail accounts are specified in the MAIL_ACCOUNTS environment variable or as arguments (the latter takes precedence over the former).
+# Make sure that offlineimap isn't already running, otherwise this script will terminate.
+
+if [ $# -ne 0 ]; then
+	accounts=$*
+else
+	accounts="${MAIL_ACCOUNTS?No environment variable for mail accounts found.}"
+fi
+
+# Make sure offlineimap is not running already
+ps cax | grep offlineimap > /dev/null
+if [ $? -ne 0 ]; then
+	for acc in $accounts
+	do
+		offlineimap -a $acc -u syslog &
+	done
+else
+	echo "Offlineimap is already running so not doing anything to not interfere."
+	exit 1
+fi
