@@ -16,17 +16,13 @@ White='\033[0;37m'        # White
 BACKUP_SCRIPT_LOCATION=~/bin_local/run_backup.sh
 BACKUP_VERIFY_LOCATION=~/bin_local/verify_backup.sh
 BACKUP_CLEAN_LOCATION=~/bin_local/clean_backup.sh
+AUR_PACAKGE_LOCATION=~/.cache/pacaur
+PKG_BACKUP_LOCATION=/mnt/nas/Other/pacman-cache
 
 echo -e "${Yellow} ====> Starting System Maintenance..."
 echo ""
 figlet "Ready?"
 echo ""
-
-###### PACMAN CACHE
-
-echo -e " ====> Init cleaning pacman cache...${Color_Off}"
-sudo pacman -Sc
-echo -e "${Green} ====> Done cleaning pacman cache."
 
 ###### BACKUPS
 
@@ -62,5 +58,28 @@ esac
 echo -e "${Yellow} ====> Starting system update...${Color_Off}"
 pacaur -Syu
 echo -e "${Green} ====> Done with system update."
+
+###### PACMAN PACKAGES STORE
+
+echo -e "${Yeelow} ====> Do you want to cleanup package cache? [y/N]${White}"
+read -rs -k 1 cleanPkgCache
+case $cleanPkgCache in
+	y|Y|j|J)
+		echo -e "${Yellow} ====> Storing aur packages ... ${Color_Off}"
+		mv "$AUR_PACKAGE_LOCATION/*/*.pkg.tar.xz" "$PKG_BACKUP_LOCATION/"
+		echo -e "${Yellow} ====> Storing pacman packages ... ${Color_Off}"
+		mv "/var/cache/pacman/pkg/*.tar.xz" "$PKG_BACKUP_LOCATION/"
+		echo -e "${Green} ====> Cleaned packages. "
+		;;
+	*)
+		;;
+esac
+
+###### PACMAN CACHE
+
+echo -e " ====> Init cleaning pacman cache...${Color_Off}"
+sudo pacman -Sc
+echo -e "${Green} ====> Done cleaning pacman cache."
+
 echo -e "${Green} ====> System maintenance done."
 figlet "Goodbye."
