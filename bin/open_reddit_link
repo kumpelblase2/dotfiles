@@ -1,0 +1,5 @@
+#!/bin/bash
+# This line opens the referenced reddit link from a newsbeuter RSS article.
+# Pipe the article into this script to open it in your configured browser.
+
+$BROWSER $(cat - | tr -d '\n' | sed "s|.*\[link\]\[\([0-9]\+\)\].*\[\1\]: \([^ ]\+\).*|\2|g")

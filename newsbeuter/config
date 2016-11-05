@@ -1,0 +1,9 @@
+auto-reload yes
+browser chromium
+refresh-on-startup yes
+reload-time 15
+reload-threads 2
+show-read-feeds no
+
+macro o open-in-browser ; toggle-article-read "read"
+macro O pipe-to "open_reddit_link" ; toggle-article-read "read"
