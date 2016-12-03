@@ -12,10 +12,12 @@
 
 export QEMU_AUDIO_DRV="pa"
 
+dir=$HOME/vm
+
 qemu-system-x86_64 \
   -enable-kvm \
   -name windows \
-  -m 6144 \
+  -m 16384 \
   -smp cores=4,threads=2 \
   -cpu host,kvm=off,check \
   -rtc base=localtime \
@@ -29,10 +31,10 @@ qemu-system-x86_64 \
   -device vfio-pci,host=01:00.1 \
   -device vfio-pci,host=05:00.0 \
   -drive if=pflash,format=raw,readonly,file=/usr/share/edk2.git/ovmf-x64/OVMF_CODE-pure-efi.fd \
-  -drive if=pflash,format=raw,file=~/vm/efivars.fd \
+  -drive if=pflash,format=raw,file=$dir/efivars.fd \
   -device virtio-scsi-pci,id=scsi \
-  -hda /dev/sdb \
-  -drive file=~/vm/virt.iso,id=virtiocd,if=none,format=raw -device ide-cd,bus=ide.1,drive=virtiocd
+  -drive file=/dev/sdb,format=raw,index=0,media=disk \
+  -drive file=$dir/virt.iso,id=virtiocd,if=none,format=raw -device ide-cd,bus=ide.1,drive=virtiocd
 
 setxkbmap de
 xset -b
