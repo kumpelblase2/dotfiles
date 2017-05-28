@@ -5,6 +5,8 @@ set hlsearch
 set ruler
 set nobackup
 set cursorline
+set showmatch
+set lazyredraw
 
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
