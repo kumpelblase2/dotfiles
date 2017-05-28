@@ -26,6 +26,7 @@ alias sshot='maim -s -c 1,0,0,0.6'
 alias ssh='TERM=xterm-256color ssh'
 alias backup_aur_packages='mv ~/.cache/pacaur/*/*.pkg.tar.xz /mnt/nas/Other/pacman-cache/'
 alias backup_packages='mv /var/cache/pacman/pkg/* /mnt/nas/Other/pacman-cache/'
+alias flash-ergodox='teensy-loader-cli -w -mmcu=atmega32u4'
 
 
 rtop() {
