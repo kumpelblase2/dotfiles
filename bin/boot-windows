@@ -36,5 +36,4 @@ qemu-system-x86_64 \
   -drive file=/dev/sdb,format=raw,index=0,media=disk \
   -drive file=$dir/virt.iso,id=virtiocd,if=none,format=raw -device ide-cd,bus=ide.1,drive=virtiocd
 
-setxkbmap de
 xset -b

@@ -348,10 +348,6 @@ end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    -- Take a screenshot
-    -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end),
-
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
@@ -457,12 +453,8 @@ globalkeys = awful.util.table.join(
             awful.util.spawn_with_shell("mpc next || ncmpc next || pms next")
         end),
 
-    -- Copy to clipboard
-    awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
-
     -- User programs
     awful.key({ modkey }, "b", function () awful.util.spawn(browser) end),
-    awful.key({ modkey }, "e", function () awful.util.spawn(gui_editor) end),
     awful.key({ modkey }, "v", function() awful.util.spawn("selectionterm") end),
 
     -- Prompt

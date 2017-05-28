@@ -27,7 +27,6 @@ alias ssh='TERM=xterm-256color ssh'
 alias backup_aur_packages='mv ~/.cache/pacaur/*/*.pkg.tar.xz /mnt/nas/Other/pacman-cache/'
 alias backup_packages='mv /var/cache/pacman/pkg/* /mnt/nas/Other/pacman-cache/'
 
-eval "$(thefuck --alias)"
 
 rtop() {
 	ssh "$i" -t top
