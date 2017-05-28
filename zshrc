@@ -1,5 +1,5 @@
 export DOTFILES=$HOME/.dotfiles
-
+DISABLE_UPDATE_PROMPT=true
 
 . "${DOTFILES}/zgen/zgen.zsh"
 
