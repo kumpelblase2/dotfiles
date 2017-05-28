@@ -1,11 +1,11 @@
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 16
 
+URxvt.internalBorder: 3
+
 !urxvt color scheme:
 
-URxvt*colorUL: #86a2b0
 URxvt*letterSpace: -1
-! URxvt*background: 0
 
 ! special
 *.cursorColor: #c0c5ce
@@ -14,14 +14,18 @@ URxvt*letterSpace: -1
 
 !urxvt fonts:
 
-URxvt*font: xft:FreeMono:pixelsize=16,xft:unifont:style=Medium:antialias=false,xft:FreeSerif:style=Regular
-URxvt*boldFont: xft:FreeMono:bold:pixelsize=16
+URxvt*font: xft:FreeMono:pixelsize=32,xft:unifont:style=Medium:antialias=false,xft:FreeSerif:style=Regular
+URxvt*boldFont: xft:FreeMono:bold:pixelsize=32
 URxvt*imLocale: en_US.UTF-8
 
 
 !urxvt extensions:
 
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,resize-font,clipboard
+
+!urxvt font size change
+URxvt.resize-font.bigger: C-Up
+URxvt.resize-font.smaller: C-Down
 
 !enabling clickable links:
 
@@ -34,10 +38,10 @@ URxvt*saveLines: 12000
 URxvt*scrollstyle:plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
-URxvt*cursorUnderline: true
+URxvt*cursorUnderline: false
 
 !Font Rendering
-Xft.dpi:	108
+Xft.dpi:	163
 Xft.antialias:	1
 Xft.hinting:	1
 Xft.rgba:	rgb

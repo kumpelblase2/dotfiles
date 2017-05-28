@@ -11,7 +11,7 @@ theme                               = {}
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/forrest"
 theme.wallpaper                     = theme.confdir .. "/wall.jpg"
 
-theme.font                          = "Terminus 8"
+theme.font                          = "Terminus 16"
 --theme.taglist_font                =
 theme.colors = {}
 theme.colors.bg                     = "#2b303b"
