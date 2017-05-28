@@ -40,7 +40,7 @@ twitch() {
 		quality=$2
 	fi	
 
-	livestreamer "twitch.tv/$1" $quality
+	streamlink "twitch.tv/$1" $quality
 }
 
 [ -f "$DOTFILES/alias_local" ] && source "$DOTFILES/alias_local"
