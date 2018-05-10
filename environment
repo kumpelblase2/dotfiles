@@ -19,4 +19,4 @@ export XDG_MUSIC_DIR=$HOME/music
 
 export GIT_SSH_COMMAND='ssh -i ~/.ssh/github_id_rsa'
 
-[ -f .zshenv_local ] && source .zshenv_local
+[ -f "$DOTFILES/environment_local" ] && source "$DOTFILES/environment_local"
