@@ -1,5 +1,4 @@
 alias cat='ccat --bg=dark'
-alias git=hub
 alias live=livestreamer-curses
 
 alias ls='ls --color'
