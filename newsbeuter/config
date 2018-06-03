@@ -1,5 +1,5 @@
 auto-reload yes
-browser chromium
+browser firefox-nightly
 refresh-on-startup yes
 reload-time 15
 reload-threads 2
