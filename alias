@@ -2,8 +2,7 @@ alias cat='ccat --bg=dark'
 alias live=livestreamer-curses
 
 alias ls='ls --color'
-alias ll='k'
-alias k='k -A -h --no-vcs'
+alias ll='exa -lh'
 alias cl='cd && clear'
 alias mpv_hd='mpv --video-sync=display-resample --display-fps=60 --profile=opengl-hq --interpolation'
 alias reload='source .zshrc'
