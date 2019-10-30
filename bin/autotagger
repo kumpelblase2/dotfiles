@@ -9,24 +9,28 @@ import sys
 import eyed3
 
 def tag(inFile, inName):
-	print("Taggin {0}".format(inFile))
-	if not inName.__contains__(" - "):
-		raise Exception("Invalid file name")
+    try:
+        print("Taggin {0}".format(inFile))
+        if not inName.__contains__(" - "):
+            print("ERROR: Invalid file name format, file is missing ' - '. Skipping")
+            return
 
-	audio = eyed3.load(inFile)
-	artist, track = inName.split(" - ")
-	audio.tag.artist = artist
-	audio.tag.title = track
-	audio.tag.save()
+        audio = eyed3.load(inFile)
+        artist, track = inName.split(" - ")
+        audio.tag.artist = artist
+        audio.tag.title = track
+        audio.tag.save()
+    except Exception as ex:
+        print("There was an issue tagging:", ex)
 
 def execute(inDirectory):
-	files = [ f for f in listdir(inDirectory) if isfile(join(inDirectory, f)) ]
-	for file in files:
-		if file.endswith(".mp3"):
-			tag(join(inDirectory, file), file[:-4])
+    files = [ f for f in listdir(inDirectory) if isfile(join(inDirectory, f)) ]
+    for file in files:
+        if file.endswith(".mp3"):
+            tag(join(inDirectory, file), file[:-4])
 
 if len(sys.argv) > 1:
-	for arg in sys.argv[1:]:
-		execute(arg)
+    for arg in sys.argv[1:]:
+        execute(arg)
 else:
-	execute(getcwd())
+    execute(getcwd())
