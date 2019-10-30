@@ -26,6 +26,7 @@ alias backup_aur_packages='mv ~/.cache/pacaur/*/*.pkg.tar.xz /mnt/nas/Other/pacm
 alias backup_packages='mv /var/cache/pacman/pkg/* /mnt/nas/Other/pacman-cache/'
 alias flash-ergodox='teensy-loader-cli -w -mmcu=atmega32u4'
 alias ssh-incognito='ssh -o IdentitiesOnly=yes -i /dev/null'
+alias update_playlist='mpc clear; find -L ~/music -name "*.mp3" -mtime -30 -printf "%P\n" | mpc add'
 
 rtop() {
 	ssh "$i" -t top
