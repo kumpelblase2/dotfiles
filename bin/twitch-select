@@ -1,0 +1,36 @@
+#!/bin/bash
+
+client_id=$TWITCH_CLIENT_ID
+my_user_id=$TWITCH_USER_ID
+
+get_followed_streams() {
+	follows=$(curl -s -H 'Accept: application/vnd.twitchtv.v5+json' -H "Client-ID: $client_id" -X GET "https://api.twitch.tv/kraken/users/$my_user_id/follows/channels?limit=100" | jq -r '.follows[].channel._id')
+	echo $follows
+}
+
+get_stream_of() {
+	stream_info=$(curl -s -H 'Accept: application/vnd.twitchtv.v5+json' -H "Client-ID: $client_id" -X GET "https://api.twitch.tv/kraken/streams/$1")
+	if [ $(echo $stream_info | jq -c '.stream?._id') = 'null' ]; then 
+		return 0
+	else
+		echo $(echo $stream_info | jq -rc '.stream.channel.name + "\t" + .stream.channel.game + "\t" + .stream.channel.status')
+	fi
+}
+
+get_online_streams() {
+	for stream in $*; do
+		get_stream_of $stream >> "/tmp/whatever_just_some_file_that_idont_care" &
+	done
+	wait
+}
+
+followed=$(get_followed_streams)
+get_online_streams ${followed[@]}
+stream=$(cat '/tmp/whatever_just_some_file_that_idont_care' | rofi -dmenu)
+rm '/tmp/whatever_just_some_file_that_idont_care'
+if [ "$stream" = "" ]; then
+	echo "No stream selected"
+else
+	stream_name=$(echo $stream | awk '{print($1)}')
+	streamlink "twitch.tv/$stream_name" best
+fi
