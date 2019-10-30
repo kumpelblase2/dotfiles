@@ -14,7 +14,7 @@
 	editor = vim
 	excludesfile = /home/tim/.gitignore_global
 	autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta --dark
 [color]
 	ui = always
 	status = auto
