@@ -1,1 +1,5 @@
 VisualHostKey=yes
+
+Host *
+	PubkeyAuthentication no
+	IdentitiesOnly yes
