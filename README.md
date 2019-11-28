@@ -1,7 +1,7 @@
 # My Dotfiles
 
 My Dotfiles contain:
-- AwesomeWM setup with custom layout and theme
+- bspwm with polybar and sxhkd
 - ZSH with zgen
     * Aliases
     * Environment
@@ -9,11 +9,10 @@ My Dotfiles contain:
 - Xresources
 - Custom scripts
     * Screenshot to puush
+    * mp3 tagging using filename
     * Terminal via selection
-    * Blur lockscreen (with i3lock)
     * Some other random things I use
 - VIM settings (pretty barebones, requires Vundle)
-- Livestreamer / livestreamer-curses configs
 - Gitconfigs
 
 ### Wallpaper Sources
