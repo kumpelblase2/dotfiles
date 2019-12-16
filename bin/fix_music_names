@@ -6,8 +6,10 @@ import re
 regex = re.compile('(【.+】|► |\[.+\]|⌈.+⌋)? ?([^[]+) ?(\[.+\])?.mp3')
 
 for filename in os.listdir("."):
-	orig = filename
+    orig = filename
 	
-	match = regex.match(filename)
-
-	os.rename(orig, match.group(2).strip() + '.mp3')
+    match = regex.match(filename)
+    if(match == None):
+        print("Error when trying to fix name for: " + orig)
+    else:
+        os.rename(orig, match.group(2).strip() + '.mp3')
