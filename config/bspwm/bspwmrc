@@ -1,13 +1,5 @@
 #! /bin/sh
 
-xset -b
-sxhkd &
-redshift &
-nextcloud &
-
-betterlockscreen -u /home/tim/files/current_wallpaper/wallhaven-156235.jpg &
-$HOME/.fehbg
-
 MONITOR1="DP-4"
 MONITOR2="DVI-D-0"
 
@@ -29,3 +21,22 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config focus_follows_pointer true
 bspc config ignore_ewmh_focus true
+
+bspc rule -a news desktop=^3
+bspc rule -a Claws-mail desktop=^3
+bspc rule -a discord desktop=^7
+bspc rule -a chat desktop=^6
+
+xset -b
+sxhkd &
+redshift &
+firefox-nightly &
+nextcloud &
+discord &
+claws-mail &
+
+betterlockscreen -u /home/tim/files/current_wallpaper/wallhaven-156235.jpg &
+$HOME/.fehbg
+
+kitty --class news /usr/bin/newsboat &
+kitty --class chat /usr/bin/weechat &
