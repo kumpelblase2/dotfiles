@@ -1,36 +1,28 @@
-alias cat='ccat --bg=dark'
-alias live=livestreamer-curses
-
+# command alias
 alias ls='ls --color'
 alias ll='exa -lh'
-alias cl='cd && clear'
+alias cat=bat
 alias mpv_hd='mpv --video-sync=display-resample --display-fps=60 --profile=opengl-hq --interpolation'
-alias reload='source .zshrc'
 alias open='xdg-open'
 alias fucking='sudo'
-alias clear_pacman_cache='sudo pacman -Sc'
 alias sc='systemctl'
-alias show_unused='expac -HM "%-20n\t%10d" $(pacman -Qtdq|sort)'
-alias remove_unused='pacman -Rns $(pacman -Qtdq)'
-alias update_mirrorlist='sudo reflector --sort rate --save /etc/pacman.d/mirrorlist -c "Germany" -f 5 -p https'
-alias mount_usb='sudo mount -t vfat /dev/sdh1 /mnt/usb -o user,exec'
-alias unmount_usb='sudo umount /mnt/usb'
 alias mkd=take
-alias t='todo.sh'
 alias unmount=umount
-alias targz='tar -cvzf'
-alias tarxz='tar -cvJf'
 alias sshot='maim -s -c 1,0,0,0.6'
 alias ssh='TERM=xterm-256color ssh'
-alias backup_aur_packages='mv ~/.cache/pacaur/*/*.pkg.tar.xz /mnt/nas/Other/pacman-cache/'
-alias backup_packages='mv /var/cache/pacman/pkg/* /mnt/nas/Other/pacman-cache/'
-alias flash-ergodox='teensy-loader-cli -w -mmcu=atmega32u4'
 alias ssh-incognito='ssh -o IdentitiesOnly=yes -i /dev/null'
-alias update_playlist='mpc clear; find -L ~/music -name "*.mp3" -mtime -30 -printf "%P\n" | mpc add'
 
-rtop() {
-	ssh "$i" -t top
-}
+# function-like alias
+alias show_unused='expac -HM "%-20n\t%10d" $(pacman -Qtdq|sort)'
+alias remove_unused='pacman -Rns $(pacman -Qtdq)'
+
+alias update_mirrorlist='sudo reflector --sort rate --save /etc/pacman.d/mirrorlist -c "Germany" -f 5 -p https'
+
+alias mount_usb='sudo mount -t vfat /dev/sdh1 /mnt/usb -o user,exec'
+alias unmount_usb='sudo umount /mnt/usb'
+
+alias flash-ergodox='teensy-loader-cli -w -mmcu=atmega32u4'
+alias update_playlist='mpc clear; find -L ~/music -name "*.mp3" -mtime -30 -printf "%P\n" | mpc add'
 
 twitch() {
 	if [ -z $2 ]; then
