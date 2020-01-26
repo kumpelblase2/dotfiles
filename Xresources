@@ -7,7 +7,7 @@ Xcursor.size: 32
 #include "/home/tim/.dotfiles/themes/current/Xresources"
 
 !Font Rendering
-Xft.dpi:	163
+Xft.dpi:	161
 Xft.antialias:	1
 Xft.hinting:	1
 Xft.rgba:	rgb
