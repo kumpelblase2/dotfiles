@@ -1,7 +1,6 @@
 # command alias
 alias ls='ls --color'
 alias ll='exa -lh'
-alias cat=bat
 alias mpv_hd='mpv --video-sync=display-resample --display-fps=60 --profile=opengl-hq --interpolation'
 alias open='xdg-open'
 alias fucking='sudo'
