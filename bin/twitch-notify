@@ -1,0 +1,37 @@
+#!/usr/bin/env fish
+
+set client_id $TWITCH_SELECT_CLIENT_ID
+set client_secret $TWITCH_SELECT_CLIENT_SECRET
+set my_user_id $TWITCH_USER_ID
+set auth_token (twid $client_id $client_secret)
+
+set online
+
+function get_followed_streams
+	curl -s -H "Client-ID: $client_id" -H "Authorization: Bearer $auth_token" -X GET "https://api.twitch.tv/helix/users/follows?from_id=$my_user_id&first=100" | jq -r '.data[].to_id' | awk 'ORS="&user_id="'  | sed -e 's/&user_id=$//'
+end
+
+function get_online_streams
+	curl -s -H "Client-ID: $client_id" -H "Authorization: Bearer $auth_token" -X GET "https://api.twitch.tv/helix/streams?first=100&user_id=$argv" | jq -r '.data[].user_name'
+end
+
+function notify_online
+    notify-send "Twitch Notify" "$argv is now online!"
+end
+
+while true
+    set followed (get_followed_streams)
+    set currently_online (get_online_streams $followed)
+    set new_online
+    for value in $currently_online
+        if contains $value $online
+            # already online
+            set -a new_online $value
+        else
+            set -a new_online $value
+            notify_online $value
+        end
+    end
+    set online $new_online
+    sleep 60
+end
