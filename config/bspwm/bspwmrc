@@ -30,8 +30,8 @@ bspc rule -a chat desktop=^6
 xset -b
 sxhkd &
 redshift &
-firefox-nightly &
-nextcloud &
+$BROWSER &
+sleep 4 && nextcloud &
 discord &
 claws-mail &
 
