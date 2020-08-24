@@ -1,0 +1,4 @@
+#!/bin/sh
+findimagedupes $@ | while read dupe; do
+  sxiv -po $dupe | xargs -r rm
+done
