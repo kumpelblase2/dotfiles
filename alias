@@ -34,4 +34,8 @@ twitch() {
 	streamlink "twitch.tv/$1" $quality
 }
 
+picture-cleaner() {
+	findimagedupes --fingerprints="$(realpath $1)/fp_data" --program="$HOME/bin/remove-selected-images" $1
+}
+
 [ -f "$DOTFILES/alias_local" ] && source "$DOTFILES/alias_local"
