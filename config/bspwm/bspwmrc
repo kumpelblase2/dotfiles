@@ -1,7 +1,7 @@
 #! /bin/sh
 
 MONITOR1="DP-4"
-MONITOR2="DVI-D-0"
+MONITOR2="DP-2"
 
 MONITOR=$MONITOR1 polybar -r spaces &
 MONITOR=$MONITOR1 polybar -r window &
