@@ -10,6 +10,7 @@ alias unmount=umount
 alias sshot='maim -s -c 1,0,0,0.6'
 alias ssh='TERM=xterm-256color ssh'
 alias ssh-incognito='ssh -o IdentitiesOnly=yes -i /dev/null'
+alias whoneeds='pactree -r'
 
 # function-like alias
 alias show_unused='expac -HM "%-20n\t%10d" $(pacman -Qtdq|sort)'
