@@ -11,3 +11,5 @@ Thumbs.db
 *.swp
 *.class
 .keep
+notes_private.md
+private_notes.md
