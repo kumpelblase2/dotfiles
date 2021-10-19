@@ -12,6 +12,8 @@ export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin:/usr/lib/ruby/gems/2.6.0/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.node/bin
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_MUSIC_DIR=$HOME/music
 
