@@ -23,6 +23,7 @@ alias unmount_usb='sudo umount /mnt/usb'
 
 alias flash-ergodox='teensy-loader-cli -w -mmcu=atmega32u4'
 alias update_playlist='mpc clear; find -L ~/music -name "*.mp3" -mtime -30 -printf "%P\n" | mpc add'
+alias extract='aunpack'
 
 twitch() {
 	if [ -z $2 ]; then
