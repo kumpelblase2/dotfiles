@@ -10,6 +10,7 @@ export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$PATH:$GOPATH/bin:$HOME/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin:/usr/lib/ruby/gems/2.6.0/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.node/bin
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_MUSIC_DIR=$HOME/music
