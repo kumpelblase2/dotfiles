@@ -10,11 +10,11 @@ get_followed_streams() {
 }
 
 get_online_streams() {
-	curl -H "Client-ID: $client_id" -H "Authorization: Bearer $auth_token" -X GET "https://api.twitch.tv/helix/streams?first=100&user_id=$1" | jq -r '.data[] | "\(.user_name)\t\(.title)"'
+	curl -H "Client-ID: $client_id" -H "Authorization: Bearer $auth_token" -X GET "https://api.twitch.tv/helix/streams?first=100&user_id=$1" | jq -r '.data[] | "\(.user_login)\t\(.title)"'
 }
 
 followed=$(get_followed_streams)
-selected=$(get_online_streams $followed | rofi -dmenu)
+selected=$(get_online_streams $followed | rofi -dmenu -i)
 if [ "$selected" = "" ]; then
 	echo "No stream selected"
 else
