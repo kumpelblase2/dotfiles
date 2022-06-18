@@ -15,8 +15,5 @@ xrandr --output DP-4 --primary --auto --output DVI-D-0 --scale 1.5x1.5 --right-o
 # Disable bell
 xset -b
 
-# Keep numlock status
-numlockx &
-
 # Execute BSPWM
 exec bspwm
