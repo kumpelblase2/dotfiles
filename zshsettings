@@ -1,8 +1,9 @@
 export HISTFILE=$HOME/.zshhistory
 export HISTSIZE=100000
 export SAVEHIST=100000
+export HISTORY_IGNORE="(pwd|exit|git push|ls|ll|htop|sudo -i|npm ci|twitch-select|discord|firefox*|weechat|python|cd ..|clear|tor-browser)"
 
-setopt appendhistory autocd EXTENDED_HISTORY HIST_IGNORE_DUPS
+setopt appendhistory share_history autocd EXTENDED_HISTORY HIST_IGNORE_DUPS HIST_REDUCE_BLANKS HIST_IGNORE_SPACE
 
 autoload -U promptinit && promptinit
 autoload -U up-line-or-beginning-search
