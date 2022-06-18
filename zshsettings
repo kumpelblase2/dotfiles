@@ -1,10 +1,27 @@
-HISTFILE=$HOME/.zshhistory
+export HISTFILE=$HOME/.zshhistory
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 setopt appendhistory autocd EXTENDED_HISTORY HIST_IGNORE_DUPS
+
+autoload -U promptinit && promptinit
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 bindkey -e
-bindkey "$terminfo[khome]" beginning-of-line
-bindkey "$terminfo[kend]" end-of-line
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 bindkey "$terminfo[kdch1]" delete-char
 bindkey "$terminfo[kich1]" overwrite-mode
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 set prefer-visible-bell on
 set bell-style none
+
+# Set bracketed paste
+set zle_bracketed_paste
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic

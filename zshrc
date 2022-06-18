@@ -2,20 +2,22 @@ export DOTFILES=$HOME/.dotfiles
 DISABLE_UPDATE_PROMPT=true
 DISABLE_AUTO_UPDATE=true
 
-. "${DOTFILES}/zgen/zgen.zsh"
+. "${DOTFILES}/zshsettings"
 
-if ! zgen saved; then
-	echo "Creating ZGEN files"
+source /usr/share/zsh/scripts/zplug/init.zsh
 
-	zgen oh-my-zsh
-	zgen load zsh-users/zsh-syntax-highlighting
-	zgen oh-my-zsh plugins/safe-paste
-	zgen oh-my-zsh themes/norm
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-	zgen save
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 
-. "${DOTFILES}/zshsettings"
+zplug load
+
+. "${DOTFILES}/zshtheme"
 . "${DOTFILES}/environment"
 . "${DOTFILES}/alias"
-

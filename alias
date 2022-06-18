@@ -5,7 +5,6 @@ alias mpv_hd='mpv --video-sync=display-resample --display-fps=60 --profile=openg
 alias open='xdg-open'
 alias fucking='sudo'
 alias sc='systemctl'
-alias mkd=take
 alias unmount=umount
 alias sshot='maim -s -c 1,0,0,0.6'
 alias ssh='TERM=xterm-256color ssh'
@@ -33,6 +32,10 @@ twitch() {
 	fi	
 
 	streamlink "twitch.tv/$1" $quality
+}
+
+mkd() {
+    mkdir -p $1 && cd $1
 }
 
 picture-cleaner() {
