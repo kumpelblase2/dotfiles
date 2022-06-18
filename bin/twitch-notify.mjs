@@ -17,7 +17,7 @@ async function getTokenData(token) {
 	}).then(res => res.json());
 
 	const currentTime = Date.now();
-	const expiryTime = currentTime + (result['expires_in']);
+	const expiryTime = currentTime + (result['expires_in'] * 1000);
 
 	return {
 		userId: result['user_id'],
@@ -63,7 +63,7 @@ let online = [];
 let tokenData = null;
 
 async function checkOnline() {
-	if(tokenData == null || tokenData.expiry <= (Date.now() - 30000)) {
+	if(tokenData == null || tokenData.expiry <= (Date.now() - 60000)) {
 		tokenData = await refreshToken();
 	}
 
