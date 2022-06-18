@@ -3,6 +3,7 @@
 .idea
 .idea/*
 *.iml
+.vscode/
 ._*
 .Spotlight-V100
 .Trashes
@@ -13,3 +14,6 @@ Thumbs.db
 .keep
 notes_private.md
 private_notes.md
+.attach_*
+*.pyc
+__pycache__
