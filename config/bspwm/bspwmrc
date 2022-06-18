@@ -10,7 +10,7 @@ MONITOR=$MONITOR2 polybar -r spaces-additional &
 MONITOR=$MONITOR2 polybar -r music &
 
 bspc monitor $MONITOR1 -d I II III IV V
-bspc monitor $MONITOR2 -d VI VII VIII IX
+bspc monitor $MONITOR2 -d VI VII VIII IX X
 #bspc monitor HDMI-0 -d X
 
 bspc config border_width         2
