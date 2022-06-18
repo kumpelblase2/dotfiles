@@ -52,9 +52,15 @@ async function getOnlineStreams(followed, token) {
 	}).then(res => res.json()).then(res => res.data);
 }
 
-function notifyAbout(stream) {
+async function notifyAbout(stream) {
 	console.log(`Notifying about stream ${stream.user_name} being online.`);
-	$`notify-send "Twitch Notify" "${stream.user_name} is now online playing ${stream.game_name}:\n${stream.title}"`;
+	const escapedTitle = stream.title.replaceAll('"', '\\"').replace(/\r?\n|\r/g, "");
+	try {
+		await $`notify-send "Twitch Notify" "${stream.user_name} is now online playing ${stream.game_name}:\n${escapedTitle}"`;
+	} catch(ex) {
+		console.log(ex.stderr);
+		console.log(ex.exitCode);
+	}
 }
 
 
@@ -70,15 +76,21 @@ async function checkOnline() {
 	const followed = await getFollowedStreams(tokenData.token, tokenData.userId);
 	const currentlyOnline = await getOnlineStreams(followed, tokenData.token);
 	const nowOnline = [];
-	currentlyOnline.forEach(stream => {
+	for(let stream of currentlyOnline) {
 		if(!online.some(oldStream => oldStream.user_id === stream.user_id)) {
-			notifyAbout(stream);
+			await notifyAbout(stream);
 		}
 		nowOnline.push(stream);
-	});
+	}
 
 	online = nowOnline;
 }
 
 checkOnline();
-setInterval(checkOnline, 60 * 1000);
+setInterval(async () => {
+	try {
+		await checkOnline();
+	} catch(ex) {
+		console.error(ex);
+	}
+}, 60 * 1000);
