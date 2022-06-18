@@ -1,2 +1,3 @@
 player=mpv --cache 16394
+title={author} - {category} - {title}
 default-stream=best
