@@ -1,5 +1,5 @@
-export VISUAL="vim"
-export EDITOR="vim"
+export VISUAL="nvim"
+export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
 
 export NO_AT_BRIDGE=1
