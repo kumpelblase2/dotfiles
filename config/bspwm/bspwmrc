@@ -34,6 +34,8 @@ $BROWSER &
 sleep 4 && nextcloud &
 discord &
 claws-mail &
+/usr/lib/kdeconnectd &
+kdeconnect-indicator &
 
 betterlockscreen -u /home/tim/files/current_wallpaper/wallhaven-156235.jpg &
 $HOME/.fehbg
