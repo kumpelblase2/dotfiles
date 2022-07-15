@@ -17,3 +17,4 @@ private_notes.md
 .attach_*
 *.pyc
 __pycache__
+.env.fish

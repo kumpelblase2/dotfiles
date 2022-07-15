@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-setopt PROMPT_SUBST
-PROMPT='%{$fg[yellow]%}λ %m %{$fg[green]%}%~ %{$fg[yellow]%}$(git_prompt_info)→ %{$reset_color%}'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[yellow]%} %{$reset_color%}"
-ZSH_THEME_HG_PROMPT_PREFIX="%{$fg[red]%}"
-ZSH_THEME_HG_PROMPT_SUFFIX="%{$fg[yellow]%} %{$reset_color%}"

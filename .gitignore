@@ -2,3 +2,10 @@ environment_local
 alias_local
 config/rofi-pass/last_used
 bspwmrc.default
+fish/functions/_fzf_*
+fish/functions/fenv.*
+fish/functions/fisher.fish
+fish/functions/fzf_*
+fish/functions/gencomp.fish
+fish/env_local.fish
+fish/fish_variables
