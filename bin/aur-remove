@@ -16,5 +16,7 @@ AURDEST=${AURDEST:-$XDG_CACHE_HOME/aurutils/sync}
 
 for var in "$@"
 do
-    rm -ri "$AURDEST/$var/"
+    folder="$AURDEST/$var/"
+    echo "Removing $folder..."
+    rm -rI "$folder"
 done
